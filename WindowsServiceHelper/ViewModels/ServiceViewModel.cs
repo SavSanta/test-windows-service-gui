@@ -50,14 +50,14 @@ namespace ServiceProcess.Helpers.ViewModels
             )
             .Subscribe(busy => IsBusy = busy);
 
-            StartCommand    = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Stopped));
-            StopCommand     = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Started || s == ServiceState.Paused));
-            PauseCommand    = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Started && service.CanPauseAndContinue));
+            StartCommand = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Stopped));
+            StopCommand = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Started || s == ServiceState.Paused));
+            PauseCommand = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Started && service.CanPauseAndContinue));
             ContinueCommand = new ReactiveCommand(currentStateObs.Select(s => s == ServiceState.Paused && service.CanPauseAndContinue));
 
-            AssignmentSubscription(StartCommand,    () => ServiceBaseHelpers.StartService(service));
-            AssignmentSubscription(StopCommand,     () => ServiceBaseHelpers.StopService(service));
-            AssignmentSubscription(PauseCommand,    () => ServiceBaseHelpers.PauseService(service));
+            AssignmentSubscription(StartCommand, () => ServiceBaseHelpers.StartService(service));
+            AssignmentSubscription(StopCommand, () => ServiceBaseHelpers.StopService(service));
+            AssignmentSubscription(PauseCommand, () => ServiceBaseHelpers.PauseService(service));
             AssignmentSubscription(ContinueCommand, () => ServiceBaseHelpers.ContinueService(service));
         }
 

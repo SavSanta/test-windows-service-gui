@@ -94,7 +94,7 @@ namespace ServiceProcess.Helpers
                 {
                     object status = GetInstanceField(typeof(ServiceBase), x, "status");
                     object state = GetInstanceField(status.GetType(), status, "currentState");
-                    if ((int) state != 3)
+                    if ((int)state != 3)
                     {
                         servicesRunning++;
                     }

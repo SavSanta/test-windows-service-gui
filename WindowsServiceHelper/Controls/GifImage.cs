@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Media.Imaging;
-using System.Windows.Media.Animation;
-using System.Windows.Controls;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Media.Imaging;
 
 namespace ServiceProcess.Helpers.Controls
 {
@@ -39,7 +36,7 @@ namespace ServiceProcess.Helpers.Controls
 
         static void LoadSource(GifImage control, Uri source)
         {
-            
+
             if (source == null)
             {
                 control.Source = null;
@@ -52,7 +49,7 @@ namespace ServiceProcess.Helpers.Controls
                 control.Source = control.gf.Frames[0];
             }
         }
-        
+
 
         static void ChangingFrameIndex(DependencyObject obj, DependencyPropertyChangedEventArgs ev)
         {

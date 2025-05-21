@@ -35,8 +35,8 @@ namespace ServiceProcess.Helpers.ViewModels
                     s => s.StartCommand.CanExecuteObservable.StartWith(true)
                         .CombineLatest
                         (
-                            s.ContinueCommand.CanExecuteObservable.StartWith(false), 
-                            (l,r) => l || r
+                            s.ContinueCommand.CanExecuteObservable.StartWith(false),
+                            (l, r) => l || r
                         )
                 )
             );
@@ -49,7 +49,7 @@ namespace ServiceProcess.Helpers.ViewModels
                 (
                     _ => new ReactiveCommand[]
                     {
-                        _SelectedService.StartCommand, 
+                        _SelectedService.StartCommand,
                         _SelectedService.ContinueCommand
                     }
                     .Where(cmd => cmd.CanExecute(null))

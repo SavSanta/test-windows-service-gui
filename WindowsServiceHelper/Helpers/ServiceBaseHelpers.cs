@@ -11,10 +11,10 @@ namespace ServiceProcess.Helpers.Helpers
     {
         internal static class Operations
         {
-            public static readonly Operation Start    = new Operation { MethodCall = "OnStart",    InitialState = ServiceState.Starting, FinishedState = ServiceState.Started, ErrorState = ServiceState.Stopped };
-            public static readonly Operation Stop     = new Operation { MethodCall = "OnStop",     InitialState = ServiceState.Stopping, FinishedState = ServiceState.Stopped, ErrorState = ServiceState.Stopped };
-            public static readonly Operation Pause    = new Operation { MethodCall = "OnPause",    InitialState = ServiceState.Pausing,  FinishedState = ServiceState.Paused,  ErrorState = ServiceState.Stopped };
-            public static readonly Operation Continue = new Operation { MethodCall = "OnContinue", InitialState = ServiceState.Starting, FinishedState = ServiceState.Started, ErrorState = ServiceState.Stopped } ;
+            public static readonly Operation Start = new Operation { MethodCall = "OnStart", InitialState = ServiceState.Starting, FinishedState = ServiceState.Started, ErrorState = ServiceState.Stopped };
+            public static readonly Operation Stop = new Operation { MethodCall = "OnStop", InitialState = ServiceState.Stopping, FinishedState = ServiceState.Stopped, ErrorState = ServiceState.Stopped };
+            public static readonly Operation Pause = new Operation { MethodCall = "OnPause", InitialState = ServiceState.Pausing, FinishedState = ServiceState.Paused, ErrorState = ServiceState.Stopped };
+            public static readonly Operation Continue = new Operation { MethodCall = "OnContinue", InitialState = ServiceState.Starting, FinishedState = ServiceState.Started, ErrorState = ServiceState.Stopped };
         }
 
         internal class Operation
@@ -75,7 +75,7 @@ namespace ServiceProcess.Helpers.Helpers
                     {
                         result.OnNext(operation.FinishedState);
                         result.OnCompleted();
-                    }, 
+                    },
 
                     ex =>
                     {
